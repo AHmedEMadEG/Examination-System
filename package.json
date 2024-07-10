@@ -12,6 +12,7 @@
   "description": "",
   "dependencies": {
     "bootstrap": "^5.3.3",
+    "bourbon": "^7.3.0",
     "sass": "^1.77.6"
   }
 }

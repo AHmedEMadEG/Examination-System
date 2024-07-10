@@ -45,6 +45,7 @@ body {
   padding: 10px 20px;
   color: #ffffff;
   text-decoration: none;
+  transition: 0.3s ease;
 }
 .rerun a:hover {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -60,6 +61,7 @@ body {
   height: 56px;
   border-radius: 100%;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: 0.3s ease;
   color: #ffffff;
   text-align: center;
 }
@@ -77,6 +79,8 @@ body {
   background: #ed2553;
   width: 44px;
   height: 44px;
+  -webkit-animation: buttonFadeInUp 1s ease;
+  animation: buttonFadeInUp 1s ease;
 }
 #portfolio i {
   line-height: 44px;
@@ -112,6 +116,7 @@ body {
   top: 40px;
   right: -70px;
   box-shadow: none;
+  transform: scale(10);
   transition: transform 0.3s ease;
 }
 .container.active .card.alt .toggle:before {
@@ -209,6 +214,7 @@ body {
   font-size: 24px;
   font-weight: 300;
   line-height: 60px;
+  transition: 0.2s ease;
 }
 .card .input-container .bar {
   position: absolute;
@@ -283,6 +289,7 @@ body {
 }
 .card .button-container button:active:before, .card .button-container button:focus:before {
   opacity: 1;
+  transform: scale(10);
 }
 .card .footer {
   margin: 40px 0 0;
@@ -330,7 +337,7 @@ body {
   cursor: pointer;
 }
 .card.alt .toggle:before {
-  content: "\f040";
+  content: "";
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
   font-size: inherit;
@@ -410,5 +417,3 @@ body {
     opacity: 0;
   }
 }
-
-/*# sourceMappingURL=styles.css.map */
