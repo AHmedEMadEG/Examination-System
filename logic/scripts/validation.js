@@ -72,7 +72,8 @@ signupSubmit.on("click", (e) => {
   let _users = JSON.parse(localStorage.getItem("users")) || [];
   const duplicatedEmailError = _users.some(user => user.email === signupEmail[0].value);
 
-  (rePasswordError || duplicatedEmailError) && console.log(rePassword.val());
+  rePasswordError && console.log(rePassword.val());
+  duplicatedEmailError && console.log("email exists!");
 
   if (!fNameError && !lNameError && !emailError && !passwordError && !rePasswordError && !duplicatedEmailError) {
     const fn = fName.val();
@@ -81,9 +82,7 @@ signupSubmit.on("click", (e) => {
     const p = password.val();
     const user = new User(fn, ln, e, p);
 
-    (_users.length === 0) && localStorage.setItem("users", JSON.stringify([user]));
-
-    _users && _users.push(user) && localStorage.setItem("users", JSON.stringify(_users));
+    _users.push(user) && localStorage.setItem("users", JSON.stringify(_users));
 
     container.toggleClass("active");
 
