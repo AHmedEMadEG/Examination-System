@@ -13,7 +13,6 @@ const loginSubmit = $("#button__login");
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-/* */
 const nameValidation = (htmlElement) => {
   const $input = $(htmlElement);
   const errorCondition =

@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "question_body": "What is the capital of France?",
+        "answers": ["Paris", "London", "Berlin", "Madrid"],
+        "correct_answer": "Paris"
+    },
+    {
+        "id": 2,
+        "question_body": "Which planet is known as the Red Planet?",
+        "answers": ["Earth", "Mars", "Jupiter", "Saturn"],
+        "correct_answer": "Mars"
+    },
+    {
+        "id": 3,
+        "question_body": "What is the largest ocean on Earth?",
+        "answers": ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
+        "correct_answer": "Pacific Ocean"
+    },
+    {
+        "id": 4,
+        "question_body": "Who wrote 'To Kill a Mockingbird'?",
+        "answers": ["Harper Lee", "Mark Twain", "Ernest Hemingway", "F. Scott Fitzgerald"],
+        "correct_answer": "Harper Lee"
+    },
+    {
+        "id": 5,
+        "question_body": "What is the smallest prime number?",
+        "answers": ["0", "1", "2", "3"],
+        "correct_answer": "2"
+    },
+    {
+        "id": 6,
+        "question_body": "What is the chemical symbol for gold?",
+        "answers": ["Ag", "Au", "Pt", "Pb"],
+        "correct_answer": "Au"
+    },
+    {
+        "id": 7,
+        "question_body": "What year did the Titanic sink?",
+        "answers": ["1905", "1910", "1912", "1915"],
+        "correct_answer": "1912"
+    },
+    {
+        "id": 8,
+        "question_body": "Who painted the Mona Lisa?",
+        "answers": ["Vincent van Gogh", "Claude Monet", "Pablo Picasso", "Leonardo da Vinci"],
+        "correct_answer": "Leonardo da Vinci"
+    },
+    {
+        "id": 9,
+        "question_body": "What is the hardest natural substance on Earth?",
+        "answers": ["Gold", "Iron", "Diamond", "Platinum"],
+        "correct_answer": "Diamond"
+    },
+    {
+        "id": 10,
+        "question_body": "Which country is the largest by area?",
+        "answers": ["China", "Canada", "United States", "Russia"],
+        "correct_answer": "Russia"
+    }
+]
