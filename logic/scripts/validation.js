@@ -60,6 +60,7 @@ password.on("change", (e) => passwordValidation(e.target));
 
 loginPassword.on("change", (e) => passwordValidation(e.target));
 
+
 signupSubmit.on("click", (e) => {
   e.preventDefault();
   const fNameError = nameValidation(fName[0]);
@@ -68,28 +69,21 @@ signupSubmit.on("click", (e) => {
   const passwordError = passwordValidation(password[0]);
   const rePasswordError = rePassword.val() !== password.val();
 
-  rePasswordError && console.log(rePassword.val());
+  let _users = JSON.parse(localStorage.getItem("users")) || [];
+  const duplicatedEmailError = _users.some(user => user.email === signupEmail[0].value);
 
-  if (
-    !fNameError &&
-    !lNameError &&
-    !emailError &&
-    !passwordError &&
-    !rePasswordError
-  ) {
+  (rePasswordError || duplicatedEmailError) && console.log(rePassword.val());
+
+  if (!fNameError && !lNameError && !emailError && !passwordError && !rePasswordError && !duplicatedEmailError) {
     const fn = fName.val();
     const ln = lName.val();
     const e = signupEmail.val();
     const p = password.val();
     const user = new User(fn, ln, e, p);
 
-    let _users = JSON.parse(localStorage.getItem("users"));
+    (_users.length === 0) && localStorage.setItem("users", JSON.stringify([user]));
 
-    !_users && localStorage.setItem("users", JSON.stringify([user]));
-
-    _users &&
-      _users.push(user) &&
-      localStorage.setItem("users", JSON.stringify(_users));
+    _users && _users.push(user) && localStorage.setItem("users", JSON.stringify(_users));
 
     container.toggleClass("active");
 
