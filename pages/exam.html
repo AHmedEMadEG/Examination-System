@@ -1,28 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Exam</title>
-    <link rel="stylesheet" href="../design/css/test.css"/>
-    <script src="../logic/scripts/jquery-3.7.1.js"></script>
-  </head>
-  <body>
-    <main>
-      <div class="welcome-container">
-        <h1></h1>
-        <div class="card">
-          <div class="button-container">
-            <button id="button__signUp"><span>START EXAM</span></button>
-          </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exam</title>
+  <link rel="stylesheet" href="../design/css/test.css" />
+  <link rel="stylesheet" href="../design/css/exam.css">
+  <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="../node_modules/bootstrap/js/src/"> -->
+  <script src="../logic/scripts/jquery-3.7.1.js"></script>
+</head>
+
+<body class="bg-dark-subtle">
+  <div class="container vh-100 text-white">
+    <div class="d-flex justify-content-between qs gap-5 col-9">
+      <form class="card col-10 p-3">
+        <div class="d-flex justify-content-between align-items-center">
+          <h1 class="card-header qNum"></h1>
+
+          <button class="btn btn-warning ms-auto p-2 mark">
+            Put In MarkList
+          </button>
         </div>
-      </div>
-      <div class="exam-container" style="display: none;">
-        <div class="container">
-            exam
+        <div class="card-header h5 mt-2" id="questionDiv">
+          <h1>Ques 1</h1>
+          Whar's fjjjjjjjjjj
         </div>
+        <div class="card-body" id="answerDiv">
+          <p>wwww</p>
+          <p>sssss</p>
+          <p>ssssssss</p>
+          <p></p>
+        </div>
+
+       
+      </form>
+
+      <div class="marked-list card col-5 text-center">
+        <h1 class="card-header p-3">Marked List</h1>
       </div>
-    </main>
-    <script src="../logic/scripts/exam.js"></script>
-  </body>
+    </div>
+
+    <nav>
+      <ul class="pagination mt-3">
+        <li class="page-item disabled" id="prevBtn">
+          <button class="page-link" aria-label="Previous">
+            <span aria-hidden="true">previous</span>
+          </button>
+        </li>
+
+        <li class="page-item" id="nextBtn">
+          <button class="page-link" aria-label="Next">
+            <span aria-hidden="true">Next</span>
+          </button>
+        </li>
+      </ul>
+      <button class="btn btn-danger ms-auto p-2 submit">
+        Submit Answer
+      </button>
+    </nav>
+  </div>
+  <!-- Dark & Light Mode -->
+  <!-- <div class="btn-group position-absolute" style="width: 30px; top: 0; right: 80px">
+    <button class="btn btn-dark" data-bs-theme-value="dark">🌙</button>
+    <button class="btn btn-light" data-bs-theme-value="light">☀</button>
+  </div> -->
+  <script src="./assets//js/bootstrap.bundle.min.js"></script>
+  <script src="./assets/js/darkmodetoggle.js"></script>
+  <script src="quiz.js"></script>
+</body>
+
 </html>
