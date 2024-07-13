@@ -1,37 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Exam</title>
-  <link rel="stylesheet" href="../design/css/test.css" />
-  <link rel="stylesheet" href="../design/css/exam.css">
-  <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
-  <!-- <link rel="stylesheet" href="../node_modules/bootstrap/js/src/"> -->
-  <script src="../logic/scripts/jquery-3.7.1.js"></script>
-</head>
-
-<body class="bg-dark-subtle">
-  <div class="container vh-100 text-white">
-    <div class="d-flex justify-content-between qs gap-5 col-9">
-      <form class="card col-10 p-3">
-        <div class="d-flex justify-content-between align-items-center">
-          <h1 class="card-header qNum"></h1>
-
-          <button class="btn btn-warning ms-auto p-2 mark">
-            Put In MarkList
-          </button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exam</title>
+    <link rel="stylesheet" href="../design/css/test.css" />
+    <link rel="stylesheet" href="../design/css/exam.css" />
+    <script src="../logic/scripts/jquery-3.7.1.js"></script>
+  </head>
+  <body>
+    <main>
+      <div class="welcome-container">
+        <h1></h1>
+        <div class="card">
+          <div class="button-container">
+            <button id="button__start"><span>START EXAM</span></button>
+          </div>
         </div>
-        <div class="card-header h5 mt-2" id="questionDiv">
-          <h1>Ques 1</h1>
-          Whar's fjjjjjjjjjj
+      </div>
+      <div class="exam-container" style="display: none">
+        <div class="questions-container">
+          
         </div>
-        <div class="card-body" id="answerDiv">
-          <p>wwww</p>
-          <p>sssss</p>
-          <p>ssssssss</p>
-          <p></p>
+        <div class="flagged-questions-container">
+
         </div>
 
 
