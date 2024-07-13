@@ -1,66 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Exam</title>
-    <link rel="stylesheet" href="../design/css/test.css" />
-    <link rel="stylesheet" href="../design/css/exam.css" />
-    <script src="../logic/scripts/jquery-3.7.1.js"></script>
-  </head>
-  <body>
-    <main>
-      <div class="welcome-container">
-        <h1></h1>
-        <div class="card">
-          <div class="button-container">
-            <button id="button__start"><span>START EXAM</span></button>
-          </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exam</title>
+  <link rel="stylesheet" href="../design/css/test.css" />
+  <link rel="stylesheet" href="../design/css/exam.css" />
+  <script src="../logic/scripts/jquery-3.7.1.js"></script>
+</head>
+
+<body>
+  <main>
+    <div class="welcome-container">
+      <h1></h1>
+      <div class="card">
+        <div class="button-container">
+          <button id="button__start"><span>START EXAM</span></button>
         </div>
-      </div>
-      <div class="exam-container" style="display: none">
-        <div class="questions-container">
-          
-        </div>
-        <div class="flagged-questions-container">
-
-        </div>
-
-
-      </form>
-
-      <div class="marked-list card col-5 text-center">
-        <h1 class="card-header p-3">Marked List</h1>
       </div>
     </div>
+    <div class="exam-container" style="display: none">
+      <div class="questions-container">
 
-    <nav>
-      <ul class="pagination mt-3">
-        <li class="page-item disabled" id="prevBtn">
-          <button class="p  age-link" aria-label="Previous">
-            <span aria-hidden="true">previous</span>
-          </button>
-        </li>
+      </div>
+      <div class="flagged-questions-container">
 
-        <li class="page-item" id="nextBtn">
-          <button class="page-link" aria-label="Next">
-            <span aria-hidden="true">Next</span>
-          </button>
-        </li>
-      </ul>
-      <button class="btn btn-danger ms-auto p-2 submit">
-        Submit Answer
-      </button>
-    </nav>
-  </div>
-  <!-- Dark & Light Mode -->
-  <!-- <div class="btn-group position-absolute" style="width: 30px; top: 0; right: 80px">
-    <button class="btn btn-dark" data-bs-theme-value="dark">🌙</button>
-    <button class="btn btn-light" data-bs-theme-value="light">☀</button>
-  </div> -->
-  <script src="./assets//js/bootstrap.bundle.min.js"></script>
-  <script src="./assets/js/darkmodetoggle.js"></script>
-  <script src="../logic/scripts/exam.js"></script>
+      </div>
+    </div>
+    <script src="../logic/scripts/exam.js"></script>
 </body>
 
 </html>
