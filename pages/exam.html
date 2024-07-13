@@ -1,32 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Exam</title>
-    <link rel="stylesheet" href="../design/css/test.css" />
-    <link rel="stylesheet" href="../design/css/exam.css" />
-    <script src="../logic/scripts/jquery-3.7.1.js"></script>
-  </head>
-  <body>
-    <main>
-      <div class="welcome-container">
-        <h1></h1>
-        <div class="card">
-          <div class="button-container">
-            <button id="button__start"><span>START EXAM</span></button>
-          </div>
-        </div>
-      </div>
-      <div class="exam-container" style="display: none">
-        <div class="questions-container">
-          
-        </div>
-        <div class="flagged-questions-container">
 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exam</title>
+  <link rel="stylesheet" href="../design/css/test.css" />
+  <link rel="stylesheet" href="../design/css/exam.css" />
+  <script src="../logic/scripts/jquery-3.7.1.js"></script>
+</head>
+
+<body>
+  <main>
+    <div class="welcome-container">
+      <h1></h1>
+      <div class="card">
+        <div class="button-container">
+          <button id="button__start"><span>START EXAM</span></button>
         </div>
       </div>
-    </main>
+    </div>
+    <div class="exam-container" style="display: none">
+      <div class="questions-container">
+
+      </div>
+      <div class="flagged-questions-container">
+
+      </div>
+    </div>
     <script type="module" src="../logic/scripts/exam.js"></script>
-  </body>
+</body>
+
 </html>

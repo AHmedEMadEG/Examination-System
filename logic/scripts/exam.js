@@ -25,7 +25,7 @@ loggedInUser && welcomeContainer.find('h1').text(
 
 const timedOut = () => {
     resultsContainer.css("display", "block");
-    examContainer.css("display",  "none");
+    examContainer.css("display", "none");
 };
 
 const createDomQuestion = (question, index) => {
