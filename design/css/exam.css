@@ -15,7 +15,7 @@
 }
 
 .flagged-questions-container{
-    /* display: none; */
+    display: none;
     padding: 15px;
     background-color: lightgray;
     flex: 1;
@@ -26,4 +26,10 @@
     padding: 10px;
     margin: 10px;
     color: white;
+    cursor: pointer;
+}
+
+.flagged-question:hover{
+    transform: scale(1.05);
+    transition: transform 0.1s;
 }
