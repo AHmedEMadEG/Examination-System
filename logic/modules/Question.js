@@ -3,8 +3,9 @@ export class Question{
         this.id = question.id;
         this.question_body = question.question_body;
         this.answers = question.answers;
-        this.correct_answer = question.correct_answer;
+        this.correctAnswer = question.correct_answer;
         this.selectedAnswer = null;
+        this.isCorrect = false;
         this.flagged = false;
     }
 }
