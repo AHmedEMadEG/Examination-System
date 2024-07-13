@@ -16,7 +16,7 @@ loggedInUser && welcomeContainer.find('h1').text(
 
 const timedOut = () => {
     resultsContainer.css("display", "block");
-    examContainer.css("display",  "none");
+    examContainer.css("display", "none");
 };
 
 const createDomQuestion = (question) => {
@@ -45,15 +45,15 @@ const initializeQuestions = (questions) => {
 
 
 const startExam = async () => {
-  const confirmation = confirm("are you sure you wanna start the exam?");
+    const confirmation = confirm("are you sure you wanna start the exam?");
 
-  if (confirmation){
-    welcomeContainer.css("display", "none");
-    examContainer.css("display",  "block");
-    const questions = await $.getJSON('../../questions.json');
-    setTimeout(timedOut, 1000 * 60);
-    initializeQuestions(questions);
-  }
+    if (confirmation) {
+        welcomeContainer.css("display", "none");
+        examContainer.css("display", "block");
+        const questions = await $.getJSON('../../questions.json');
+        setTimeout(timedOut, 1000 * 60);
+        initializeQuestions(questions);
+    }
 };
 
 $("#button__signUp").on("click", startExam);
