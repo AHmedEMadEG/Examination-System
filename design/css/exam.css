@@ -1,3 +1,29 @@
+.exam-container{
+    display: flex;
+}
+
+.questions-container{
+    flex: 2;
+}
+
 .question-container{
     display: none;
+}
+
+.question__btn{
+    display: none;
+}
+
+.flagged-questions-container{
+    /* display: none; */
+    padding: 15px;
+    background-color: lightgray;
+    flex: 1;
+}
+
+.flagged-question{
+    background-color: darkgray;
+    padding: 10px;
+    margin: 10px;
+    color: white;
 }
