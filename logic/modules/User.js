@@ -4,5 +4,6 @@ export class User{
         this.lastName = ln;
         this.email = email;
         this.password = password;
+        this.lastScore = null;
     }
 }

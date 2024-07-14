@@ -2,13 +2,13 @@ import { Question } from "../modules/Question.js";
 
 const welcomeContainer = $('.welcome-container');
 const examContainer = $('.exam-container');
-const resultsContainer = $('.results-container');
 const questionsContainer = $('.questions-container');
 const flaggedContainer = $('.flagged-questions-container');
 
 let nextBtn = null;
 let flagBtn = null;
 let prevBtn = null;
+let submitBtn = null;
 
 
 let questionContainer = null;
@@ -16,12 +16,29 @@ let questionsArray = [];
 
 let currentQuestion = 0;
 
-const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+let timerInterval = null;
+
+let loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
 
 !loggedInUser && location.replace("../../pages/index.html");
 
 loggedInUser && welcomeContainer.find('h1').text(
     `Welcome to the Examination System Eng/ ${loggedInUser.firstName} ${loggedInUser.lastName}`);
+
+const calculateUnansweredQuestions = () => {
+  const confirmation = confirm("are you sure you wanna submit the exam?");
+
+  if (confirmation){
+    let unansweredQuestions = 0;
+    questionsArray.forEach((question) => {
+        !question.selectedAnswer && unansweredQuestions++;
+    });
+    if(unansweredQuestions){
+        confirm(`you haven't answered ${unansweredQuestions} question${unansweredQuestions === 1 ? '' : 's'}`) 
+        && timedOut();
+    }
+  }
+};
 
 
 const calculateResult = () => {
@@ -34,9 +51,23 @@ const calculateResult = () => {
 };
     
 const timedOut = () => {
-    resultsContainer.css("display", "block");
-    examContainer.css("display",  "none");
-    $("#score").text(calculateResult());
+    clearInterval(timerInterval);
+    let _users = JSON.parse(localStorage.getItem("users"));
+
+    _users = _users.map((user) => {
+        if(loggedInUser.email === user.email){
+            loggedInUser.lastScore = calculateResult();
+             return {
+                ...user,
+                lastScore: loggedInUser.lastScore
+            };
+        }else{
+            return {...user};
+        }
+    });
+    localStorage.setItem("users", JSON.stringify(_users));
+    localStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
+    location.replace("../../pages/result.html");
 };
 
 const createDomQuestion = (question, index) => {
@@ -63,17 +94,23 @@ const initializeQuestions = (questions) => {
         createDomQuestion(question, index);
     });
     questionContainer = $('.question-container');
+    const btnsContainer = $("<div class='exam__btns-container'></div>");
     prevBtn = $(`<button class="question__prev-btn question__btn">PREVIOUS</button>`);
     nextBtn = $(`<button class="question__next-btn question__btn">NEXT</button>`);
     flagBtn = $(`<button class="question__flag-btn question__btn">FLAG</button>`);
+    submitBtn = $(`<button class="exam__submit-btn">SUBMIT</button>`);
 
-    questionsContainer.append(prevBtn);
-    questionsContainer.append(nextBtn);
-    questionsContainer.append(flagBtn);
+    btnsContainer.append(prevBtn);
+    btnsContainer.append(nextBtn);
+    btnsContainer.append(flagBtn);
+
+    questionsContainer.append(btnsContainer);
+    questionsContainer.append(submitBtn);
     
     flagBtn.on("click", flagQuestion);
     nextBtn.on("click", showNextQuestion);
     prevBtn.on("click", showPreviousQuestion);
+    submitBtn.on("click", calculateUnansweredQuestions);
 
     questionContainer[0].style.display = "block";
     nextBtn.css("display","inline");
@@ -93,9 +130,11 @@ const startExam = async () => {
   }
 };
 
+// startExam(); // for testing
+
 const startTimer = () => {
     $(".timer-container").css("display", "flex");
-    const examDuration = 10;
+    const examDuration = 10 * 60;
     let remainingTime = examDuration;
 
     const progressBar = $('.progress');
@@ -103,7 +142,6 @@ const startTimer = () => {
 
     const updateTimer = () => {
         if (remainingTime === 0) {
-            clearInterval(timerInterval);
             timedOut();
         }else{
             remainingTime--;
@@ -119,7 +157,7 @@ const startTimer = () => {
     // Initialize timer
     updateTimer();
 
-    const timerInterval = setInterval(updateTimer, 1000);
+    timerInterval = setInterval(updateTimer, 1000);
 };
 
 
