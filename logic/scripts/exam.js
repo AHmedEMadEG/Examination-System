@@ -30,13 +30,13 @@ const calculateResult = () => {
         (question.selectedAnswer === question.correctAnswer) && correctAnswers++;
         question.isCorrect = question.selectedAnswer === question.correctAnswer;
     });
-    
+    return correctAnswers;
 };
     
 const timedOut = () => {
     resultsContainer.css("display", "block");
     examContainer.css("display",  "none");
-    calculateResult();
+    $("#score").text(calculateResult());
 };
 
 const createDomQuestion = (question, index) => {
@@ -82,19 +82,48 @@ const initializeQuestions = (questions) => {
 
 
 const startExam = async () => {
-//   const confirmation = confirm("are you sure you wanna start the exam?"); // for testing purposes
+  const confirmation = confirm("are you sure you wanna start the exam?");
 
-  if (1){
+  if (confirmation){
     welcomeContainer.css("display", "none");
     examContainer.css("display",  "flex");
     const questions = await $.getJSON('../../questions.json');
-    // setTimeout(timedOut, 1000 * 10);
     initializeQuestions(questions);
+    startTimer();
   }
 };
 
+const startTimer = () => {
+    $(".timer-container").css("display", "flex");
+    const examDuration = 10;
+    let remainingTime = examDuration;
+
+    const progressBar = $('.progress');
+    const timerText = $('.timer-text');
+
+    const updateTimer = () => {
+        if (remainingTime === 0) {
+            clearInterval(timerInterval);
+            timedOut();
+        }else{
+            remainingTime--;
+            const minutes = Math.floor(remainingTime / 60);
+            const seconds = remainingTime % 60;
+            timerText.text(`${minutes}:${seconds < 10 ? '0' : ''}${seconds}`);
+
+            const progressPercentage = (remainingTime / examDuration) * 100;
+            progressBar.css('width', `${progressPercentage}%`);
+        }
+    };
+
+    // Initialize timer
+    updateTimer();
+
+    const timerInterval = setInterval(updateTimer, 1000);
+};
+
+
 $("#button__start").on("click", startExam);
-startExam();  // for testing purposes
 
 const showAndHideBtns = () => {
     currentQuestion ? prevBtn.css("display", "inline") : prevBtn.css("display", "none"); // if currentQuestion not 0 show else hide
