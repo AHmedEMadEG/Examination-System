@@ -23,14 +23,24 @@ const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
 loggedInUser && welcomeContainer.find('h1').text(
     `Welcome to the Examination System Eng/ ${loggedInUser.firstName} ${loggedInUser.lastName}`);
 
+
+const calculateResult = () => {
+    let correctAnswers = 0;
+    questionsArray.forEach((question) => {
+        (question.selectedAnswer === question.correctAnswer) && correctAnswers++;
+        question.isCorrect = question.selectedAnswer === question.correctAnswer;
+    });
+    
+};
+    
 const timedOut = () => {
     resultsContainer.css("display", "block");
-    examContainer.css("display", "none");
+    examContainer.css("display",  "none");
+    calculateResult();
 };
 
 const createDomQuestion = (question, index) => {
     const questionObj = new Question(question)
-    questionsArray.push(questionObj);
     const questionContainer = $('<div class="question-container"></div>');
     const body = $(`<h3 class='question-body'>${index + 1}. ${question.question_body}</h3>`);
     questionContainer.append(body);
@@ -38,8 +48,12 @@ const createDomQuestion = (question, index) => {
     question.answers.forEach((answer, index) => {
         const li = $(`<li><input type="radio" id="${index}_${answer}" 
         name="${question.id}" value="${answer}"><label for="${index}_${answer}">${answer}</label></li>`);
+        li.on("change", (e) => {
+            questionObj.selectedAnswer = e.target.value; 
+        });
         ul.append(li);
     });
+    questionsArray.push(questionObj);
     questionContainer.append(ul);
     questionsContainer.append(questionContainer);
 };
@@ -74,7 +88,7 @@ const startExam = async () => {
     welcomeContainer.css("display", "none");
     examContainer.css("display",  "flex");
     const questions = await $.getJSON('../../questions.json');
-    // setTimeout(timedOut, 1000 * 60);
+    // setTimeout(timedOut, 1000 * 10);
     initializeQuestions(questions);
   }
 };
@@ -82,14 +96,18 @@ const startExam = async () => {
 $("#button__start").on("click", startExam);
 startExam();  // for testing purposes
 
+const showAndHideBtns = () => {
+    currentQuestion ? prevBtn.css("display", "inline") : prevBtn.css("display", "none"); // if currentQuestion not 0 show else hide
+    (currentQuestion === 9) ? nextBtn.css("display", "none") : nextBtn.css("display", "inline"); // if currentQuestion 9 hide else show
+};
+
 const showNextQuestion = () => {
     questionContainer[currentQuestion].style.display = "none";
     currentQuestion = (currentQuestion + 1) % questionContainer.length; // 0 - length of questions
     questionContainer[currentQuestion].style.display = "block";
     questionsArray[currentQuestion].flagged ? flagBtn.text("UNFLAG") : flagBtn.text("FLAG");
     
-    currentQuestion ? prevBtn.css("display", "inline") : prevBtn.css("display", "none"); // if currentQuestion not 0 show else hide
-    (currentQuestion === 9) ? nextBtn.css("display", "none") : nextBtn.css("display", "inline"); // if currentQuestion 9 hide else show
+    showAndHideBtns();
 };
 
 
@@ -100,18 +118,26 @@ const showPreviousQuestion = () => {
 
     questionContainer[currentQuestion].style.display = "block";
     
-    currentQuestion ? prevBtn.css("display", "inline") : prevBtn.css("display", "none");
-    (currentQuestion === 9) ? nextBtn.css("display", "none") : nextBtn.css("display", "inline"); // if currentQuestion 9 hide else show
+    showAndHideBtns();
 };
 
 const flagQuestion = () => {
     questionsArray[currentQuestion].flagged = !questionsArray[currentQuestion].flagged;
 
-    if(flagBtn.text() === "FLAG"){
+    if(questionsArray[currentQuestion].flagged){
         !(flaggedContainer.children().length) && flaggedContainer.css("display", "block");
-        flaggedContainer.append(
-            `<div class="flagged-question">${$(questionContainer[currentQuestion])
+        const flaggedQuestion = $(`<div class="flagged-question">${$(questionContainer[currentQuestion])
                 .find('.question-body').text()}</div>`);
+
+        let cq = currentQuestion; // closure on currentQuestion value for each instance
+        flaggedQuestion.on("click", () => {
+            questionContainer[currentQuestion].style.display = "none";
+            currentQuestion = cq;
+            questionContainer[currentQuestion].style.display = "block";
+            showAndHideBtns();
+        });
+
+        flaggedContainer.append(flaggedQuestion);
     }else{
         flaggedContainer.children().each((index, element) => {
             if($(element).text() === $(questionContainer[currentQuestion]).find('.question-body').text()){
@@ -121,9 +147,5 @@ const flagQuestion = () => {
         !(flaggedContainer.children().length) && flaggedContainer.css("display", "none");
     }
 
-    
-
     questionsArray[currentQuestion].flagged ? flagBtn.text("UNFLAG") : flagBtn.text("FLAG");
-
-            
 };
