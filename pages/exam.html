@@ -1,48 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exam</title>
+    <link rel="stylesheet" href="../design/css/exam.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <script src="../logic/scripts/jquery-3.7.1.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Exam</title>
-  <link rel="stylesheet" href="../design/css/test.css" />
-  <link rel="stylesheet" href="../design/css/exam.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-  <script src="../logic/scripts/jquery-3.7.1.js"></script>
-</head>
-
-<body>
-  <main>
-    <div class="welcome-container">
-      <h1></h1>
-      <div class="card cont">
-        <div class="button-container">
-          <button id="button__start"><span class="exambtn">START EXAM</span></button>
+  <body>
+    <main>
+      <img class="backgroundimg" src="../images/blob2.png" />
+      <div class="welcome-container">
+        <h1 class="animate__animated animate__zoomInUp"></h1>
+        <div class="card cont">
+          <div class="button-container">
+            <button id="button__start">
+              <span class="exambtn">START EXAM</span>
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="parent">
-      <img class="backgroundimg" src="../images/blob2.png">
       <div class="timer-container">
         <div class="progress-bar">
           <div class="progress"></div>
         </div>
-        <div class="timer-text">5:00</div>
+        <div class="timer-text"></div>
       </div>
-      <div class="exam-container" style="display: none">
-        <div class="questions-container">
-
-        </div>
+      <div class="exam-container">
+        <div class="questions-container"></div>
         <div class="flagged-questions-container">
-          <h3>Flagged Question</h3>
-
+          <h3 style="width: 100%;">Flagged Question</h3>
         </div>
       </div>
-
-
-    </div>
-    
-    <script type="module" src="../logic/scripts/exam.js"></script>
-</body>
-
+    </main>
+    <script type="module" src="../logic/scripts/exam/exam.js"></script>
+  </body>
 </html>

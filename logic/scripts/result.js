@@ -17,3 +17,4 @@ $(".score__percentager__content").text(loggedInUser.lastScore * 10);
 localStorage.removeItem('loggedInUser');
 
 
+$("button").on("click", () => location.replace("../../pages/index.html"));
