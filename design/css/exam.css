@@ -1,71 +1,122 @@
-/* General Styles */
-body {
-  background-color: white;
-}
-.parent {
-  padding: 50px;
-  position: relative;
-  z-index: 2;
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
-.mama {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.welcome-container h1 {
+  font-size: 48px;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+.card.cont {
+  padding: 40px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.button-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.button-container button {
+  border-radius: 15px;
+  cursor: pointer;
+  background: 0;
+  border: 2px solid #1679ab;
+  padding: 20px;
+  font-size: 24px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #1679ab;
+  transition: all 0.5s;
+}
+
+.button-container button:hover {
+  background-color: #1679ab;
+  color: white;
+}
+
+.backgroundimg {
+  position: fixed;
+  right: 0%;
+  z-index: -1;
+  width: 45%;
+  bottom: 0;
+}
+
+.timer-container {
+  display: none;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.progress-bar {
+  width: 90%;
+  background: #e0e0e0;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress {
+  width: 100%;
+  height: 10px;
+  background: #5e7d8f;
+  transition: width 0.5s linear;
+}
+
+.timer-text {
+  font-size: 25px;
+  background-color: #5e7d8f;
+  padding: 10px;
+  color: white;
+  border-radius: 10px;
 }
 
 .exam-container {
-  display: flex;
-  flex-direction: row;
+  display: none;
   justify-content: space-between;
-  width: 95%;
-  height: 95%;
-  background-color: #fff;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  box-sizing: border-box;
+  width: 100%;
+  flex-wrap: wrap;
 }
 
 .questions-container {
-  flex: 1;
+  flex: 3;
   padding: 20px;
   background-color: #f9fafc;
+  border: 1px solid #1679ab;
   border-radius: 10px;
   margin-right: 20px;
   position: relative;
-  box-sizing: border-box;
-  overflow-y: auto; /* Enable scrolling if content overflows */
+  min-width: 750px;
+  height: 365px;
 }
 
 .question-container {
   display: none;
   border: 1px solid #1679ab;
-  border-radius: 20px;
-  margin-right: 10px;
-}
-.questions-container {
-  border: 1px solid #1679ab;
-  border-radius: 20px;
+  border-radius: 5px;
   margin-right: 10px;
 }
 
-.question-body {
-  font-size: 1.5em;
-  margin-bottom: 20px;
+.questions-container h3 {
+  padding: 20px;
+  margin: 10px;
+  color: #1679ab;
+  font-size: 20px;
 }
 
 .answers {
   list-style: none;
-  padding: 0;
+  padding: 10px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
 }
 
 .answers li {
-  display: flex;
-  align-items: center;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -91,42 +142,63 @@ body {
   display: none;
 }
 
-.questions-container h3 {
-  padding: 20px;
+.question__btn {
+  background-color: #1679ab;
+  color: white;
+  cursor: pointer;
+  border: 1px solid #1679ab;
+  padding: 10px;
   margin: 10px;
-  color: #1679ab;
   font-size: 20px;
-  border-radius: 10px;
-}
-li {
-  list-style: none;
   border-radius: 5px;
-  background-color: lightgray;
-  width: auto;
-  height: 35px;
-  margin: 15px;
-  padding: 15px;
-  font-size: 20px;
-}
-li > label {
-  padding-left: 10px;
+  width: 150px;
 }
 
-/* Styling flagged questions section */
+.question__flag-btn {
+  background-color: #5e7d8f;
+  color: white;
+  margin-left: auto;
+}
+
+.btn-disabled {
+  cursor: not-allowed;
+  background-color: white;
+  color: gray;
+}
+
+.exam__btns-container {
+  display: flex;
+}
+
+.submit-btn-container{
+  display: flex;
+  justify-content: center;
+}
+
+.exam__submit-btn {
+  background-color: #54BBF0;
+  color: black;
+  border: none;
+}
+
 .flagged-questions-container {
-  border-radius: 20px;
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  border-radius: 10px;
   border: 1px solid #1679ab;
-  /* color: whitesmoke; */
   font-weight: bolder;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
-  /* display: none; */
   padding: 15px;
   font-size: 20px;
-  flex: 1;
+  min-width: 285px;
 }
 
 .flagged-question {
+  width: 20px;
+  height: 20px;
   border-radius: 15px;
   background-color: #1679ab;
   padding: 10px;
@@ -134,8 +206,6 @@ li > label {
   border-radius: 5px;
   margin-bottom: 10px;
   cursor: pointer;
-  width: 100%;
-  text-align: center;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s, transform 0.3s;
@@ -144,130 +214,4 @@ li > label {
 .flagged-question:hover {
   background-color: #e0f7fa;
   transform: translateY(-2px);
-}
-
-/* FadeIn Animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.question__prev-btn,
-.question__btn {
-  background-color: #1679ab;
-  color: white;
-  outline: 0;
-  cursor: pointer;
-  width: auto;
-  border: 1px solid #1679ab;
-  padding: 11px;
-  font-weight: bolder;
-  transition: 0.3s ease;
-  margin: 70px;
-  font-size: 20px;
-  border-radius: 10px;
-  width: 112px;
-}
-.previous-btn {
-  color: #1679ab;
-  background-color: white;
-  border: 1px solid #1679ab;
-}
-.question__flag-btn {
-  background-color: #ffd165;
-}
-
-.timer-container {
-  display: none;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.progress-bar {
-  width: 100%;
-  background-color: #e0e0e0;
-  border-radius: 5px;
-  overflow: hidden;
-  margin-right: 10px;
-  height: 20px;
-  position: relative;
-}
-
-.progress {
-  height: 100%;
-  background-color: #1679ab;
-  width: 100%;
-  transition: width 1s linear;
-}
-
-.timer-text {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.results-container {
-  display: none;
-}
-
-.cont {
-  max-width: 600px;
-  /* text-align: center; */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 150px auto;
-  /* box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px; */
-}
-
-.card .button-container button {
-  border-color: #1679ab;
-}
-
-.card .button-container button span {
-  color: #1679ab;
-  text-transform: lowercase;
-}
-
-.card .button-container button:hover {
-  background-color: #1679ab;
-}
-
-.card .button-container button:hover span {
-  color: white;
-}
-
-.welcome-container h1 {
-  font-size: 30px;
-  font-weight: bold;
-  margin-top: 100px;
-  text-align: center;
-  font-size: xxx-large;
-  font-family: cursive;
-  color: #1679ab;
-}
-.backgroundimf {
-  position: absolute;
-  right: -2%;
-  top: 64%;
-  z-index: 1;
-}
-
-.backgroundimf {
-  position: fixed;
-  right: 0%;
-  z-index: 1;
-  width: 45%;
-  bottom: 0;
-}
-.parent {
-  position: relative; /* Creates a stacking context */
-  z-index: 99; /* Ensures this element is on top of elements with lower z-index */
-}
-
-.dsip-none {
-  /* display: none; */
 }
