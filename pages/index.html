@@ -9,7 +9,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
   <link rel="stylesheet" href="../design/css/test.css" />
   <script src="../logic/scripts/jquery-3.7.1.js"></script>
- 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
 </head>
 
 <body>
@@ -18,7 +19,7 @@
   </div>
   <main class="mama">
     <div>
-      <img src="../images/img.jpg" alt="">
+      <img src="Exams.gif" alt="">
     </div>
     <div class="container">
       <div class="card"></div>
@@ -41,7 +42,7 @@
             <div class="login-error-msg error-msg"></div>
             <button id="button__login"><span>LOG IN</span></button>
           </div>
-          <div class="footer"><a href="#">Forgot your password?</a></div>
+
         </form>
       </div>
       <div class="card alt">
@@ -91,6 +92,19 @@
   </main>
   <script src="../logic/scripts/animation.js"></script>
   <script type="module" src="../logic/scripts/validation.js"></script>
+
+  <script>
+    const toggle = document.querySelector('.toggle');
+    const container = document.querySelector('.container');
+    const reg = document.querySelector('.regest__link')
+
+    reg.addEventListener('click', function (e) {
+      e.preventDefault()
+      container.classList.toggle('active');
+
+
+    })
+  </script>
 </body>
 
 </html>

@@ -10,11 +10,11 @@ body {
 }
 
 /* Pen Title */
-.pen-title {
+/* .pen-title {
   padding: 50px 0;
   text-align: center;
-  letter-spacing: 2px;
-}
+  letter-spacing: 50px;
+} */
 .pen-title h1 {
   margin: 0 0 20px;
   font-size: 48px;
@@ -23,37 +23,37 @@ body {
 .pen-title span {
   font-size: 12px;
 }
-.pen-title span .fa {
-  color: #ed2553;
-}
-.pen-title span a {
-  color: #ed2553;
+/* .pen-title span .fa {
+  color: #1679ab;
+} */
+/* .pen-title span a {
+  color: #1679ab;
   font-weight: 600;
   text-decoration: none;
-}
+} */
 
 /* Rerun */
-.rerun {
+/* .rerun {
   margin: 0 0 30px;
   text-align: center;
-}
-.rerun a {
+} */
+/* .rerun a {
   cursor: pointer;
   display: inline-block;
-  background: #ed2553;
+  background: #1679ab;
   border-radius: 3px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   padding: 10px 20px;
   color: #ffffff;
   text-decoration: none;
   transition: 0.3s ease;
-}
-.rerun a:hover {
+} */
+/* .rerun a:hover {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-}
+} */
 
 /* Scroll To Bottom */
-#codepen,
+/* #codepen,
 #portfolio {
   position: fixed;
   bottom: 30px;
@@ -66,29 +66,29 @@ body {
   transition: 0.3s ease;
   color: #ffffff;
   text-align: center;
-}
-#codepen i,
+} */
+/* #codepen i,
 #portfolio i {
   line-height: 56px;
-}
-#codepen:hover,
+} */
+/* #codepen:hover,
 #portfolio:hover {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-}
+} */
 
 /* CodePen */
-#portfolio {
+/* #portfolio {
   bottom: 96px;
   right: 36px;
-  background: #ed2553;
+  background: #168dab;
   width: 44px;
   height: 44px;
   -webkit-animation: buttonFadeInUp 1s ease;
   animation: buttonFadeInUp 1s ease;
-}
-#portfolio i {
+} */
+/* #portfolio i {
   line-height: 44px;
-}
+} */
 
 /* Container */
 .container {
@@ -97,14 +97,14 @@ body {
   width: 100%;
   margin: 0 auto 100px;
 }
-.container.active .card:first-child {
+/* .container.active .card:first-child {
   background: #f2f2f2;
   margin: 0 15px;
-}
-.container.active .card:nth-child(2) {
+} */
+/* .container.active .card:nth-child(2) {
   background: #fafafa;
   margin: 0 10px;
-}
+} */
 .container.active .card.alt {
   /* top: 20px;
   right: 0;
@@ -174,7 +174,7 @@ body {
   /* Alt Card */
 }
 .card:first-child {
-  background: #fafafa;
+  /* background: #fafafa; */
   height: 10px;
   border-radius: 5px 5px 0 0;
   margin: 0 10px;
@@ -183,10 +183,10 @@ body {
 .card .title {
   position: relative;
   z-index: 1;
-  border-left: 5px solid #ed2553;
+  border-left: 5px solid #1679ab;
   margin: 0 0 35px;
   padding: 10px 0 10px 50px;
-  color: #ed2553;
+  color: #1679ab;
   font-size: 32px;
   font-weight: 600;
   text-transform: uppercase;
@@ -238,15 +238,15 @@ body {
   width: 100%;
   height: 1px;
 }
-.card .input-container .bar:before,
+/* .card .input-container .bar:before,
 .card .input-container .bar:after {
   content: "";
   position: absolute;
-  background: #ed2553;
+  background: #1679AB;
   width: 0;
   height: 2px;
   transition: 0.2s ease;
-}
+} */
 .card .input-container .bar:before {
   left: 50%;
 }
@@ -258,75 +258,77 @@ body {
   text-align: center;
 }
 .card .button-container button {
-  outline: 0;
+  border-radius: 15px;
   cursor: pointer;
   position: relative;
   display: inline-block;
   background: 0;
   width: 240px;
-  border: 2px solid #e3e3e3;
+  border: 2px solid #1679ab;
   padding: 20px 0;
   font-size: 24px;
   font-weight: 600;
   line-height: 1;
   text-transform: uppercase;
-  overflow: hidden;
-  transition: 0.3s ease;
+  transition: all 0.5s;
+  color: #1679ab;
 }
-.card .button-container button span {
-  position: relative;
-  z-index: 1;
-  color: #ddd;
-  transition: 0.3s ease;
+
+.card .button-container button:hover {
+  background-color: #1679ab;
+  color: white;
 }
-.card .button-container button:before {
+
+/* .card .button-container button span {
+} */
+/* .card .button-container button:before {
   content: "";
   position: absolute;
   top: 50%;
   left: 50%;
   display: block;
-  background: #ed2553;
+  background: #1679AB;
   width: 30px;
   height: 30px;
   border-radius: 100%;
   margin: -15px 0 0 -15px;
   opacity: 0;
   transition: 0.3s ease;
-}
-.card .button-container button:hover,
+} */
+/* .card .button-container button:hover,
 .card .button-container button:active,
 .card .button-container button:focus {
-  border-color: #ed2553;
-}
-.card .button-container button:hover span,
+  border-color: #1679AB;
+} */
+/* .card .button-container button:hover span,
 .card .button-container button:active span,
 .card .button-container button:focus span {
-  color: #ed2553;
-}
-.card .button-container button:active span,
+  color: #1679AB;
+} */
+/* .card .button-container button:active span,
 .card .button-container button:focus span {
   color: #ffffff;
-}
-.card .button-container button:active:before,
+} */
+/* .card .button-container button:active:before,
 .card .button-container button:focus:before {
   opacity: 1;
   transform: scale(10);
-}
-.card .footer {
+} */
+/* .card .footer {
   margin: 40px 0 0;
   color: #d3d3d3;
   font-size: 24px;
   font-weight: 300;
   text-align: center;
-}
-.card .footer a {
+} */
+/* .card .footer a {
   color: inherit;
   text-decoration: none;
   transition: 0.3s ease;
-}
-.card .footer a:hover {
+} 
+/* .card .footer a:hover {
   color: #bababa;
-}
+} */
 .card.alt {
   position: absolute;
   top: 40px;
@@ -346,7 +348,7 @@ body {
 }
 .card.alt .toggle {
   position: relative;
-  background: #ed2553;
+  background: #1679ab;
   width: 140px;
   height: 140px;
   border-radius: 100%;
@@ -418,7 +420,7 @@ body {
   border-color: #ffffff;
 }
 .card.alt .button-container button span {
-  color: #ed2553;
+  color: #1679ab;
 }
 .card.alt .button-container button:hover {
   background: rgba(255, 255, 255, 0.9);
@@ -453,11 +455,43 @@ body {
   align-content: center;
   margin-left: 81px;
   margin-top: 66px;
+  padding: 12px 87px;
 }
 
 .mama img {
   width: 489px;
   height: 570px;
+}
+
+.animate__animated .animate__backInUp {
+  text-align: center;
+  font-size: xxx-large;
+  font-family: cursive;
+}
+
+#button__signUp {
+  border-radius: 15px;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  width: 240px;
+  border: 2px solid #1679ab;
+  padding: 20px 0;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
+  transition: all 0.5s;
+  color: #1679ab;
+}
+
+/* #button__signUp:hover { */
+/* background-color: #1679ab; */
+/* color: white; */
+/* } */
+
+.regest {
+  margin: 30px 0 10px 120px;
 }
 
 .animate__animated .animate__backInUp {

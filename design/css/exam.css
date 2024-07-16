@@ -1,14 +1,17 @@
 /* General Styles */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f9;
-  margin: 0;
-  padding: 0;
+  background-color: white;
+}
+.parent {
+  padding: 50px;
+  position: relative;
+  z-index: 2;
+}
+
+.mama {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
 }
 
 .exam-container {
@@ -37,6 +40,14 @@ body {
 
 .question-container {
   display: none;
+  border: 1px solid #1679ab;
+  border-radius: 20px;
+  margin-right: 10px;
+}
+.questions-container {
+  border: 1px solid #1679ab;
+  border-radius: 20px;
+  margin-right: 10px;
 }
 
 .question-body {
@@ -80,60 +91,44 @@ body {
   display: none;
 }
 
-.question__btn {
+.questions-container h3 {
+  padding: 20px;
   margin: 10px;
-  padding: 10px 20px;
-  border: none;
+  color: #1679ab;
+  font-size: 20px;
+  border-radius: 10px;
+}
+li {
+  list-style: none;
   border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  background-color: lightgray;
+  width: auto;
+  height: 35px;
+  margin: 15px;
+  padding: 15px;
+  font-size: 20px;
 }
-
-.question__prev-btn {
-  background-color: #ff8a80;
-  color: white;
-}
-
-.question__prev-btn:hover {
-  background-color: #ff5252;
-}
-
-.question__next-btn {
-  background-color: #8bc34a;
-  color: white;
-}
-
-.question__next-btn:hover {
-  background-color: #4caf50;
-}
-
-.question__flag-btn {
-  background-color: white;
-  color: orange;
-  border: 1px solid orange;
-  transition: all 0.4s;
-}
-
-.question__flag-btn:hover {
-  background-color: orange;
-  color: white;
+li > label {
+  padding-left: 10px;
 }
 
 /* Styling flagged questions section */
 .flagged-questions-container {
-  flex-basis: 30%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-sizing: border-box;
-  overflow: hidden; /* Enable scrolling if content overflows */
-}
-
-.flagged-questions-container h3 {
-  margin-bottom: 20px;
+  border-radius: 20px;
+  border: 1px solid #1679ab;
+  /* color: whitesmoke; */
+  font-weight: bolder;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  /* display: none; */
+  padding: 15px;
+  font-size: 20px;
+  flex: 1;
 }
 
 .flagged-question {
+  border-radius: 15px;
+  background-color: #1679ab;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -161,35 +156,29 @@ body {
   }
 }
 
-.fadeIn {
-  animation: fadeIn 0.5s ease-in-out;
+.question__prev-btn,
+.question__btn {
+  background-color: #1679ab;
+  color: white;
+  outline: 0;
+  cursor: pointer;
+  width: auto;
+  border: 1px solid #1679ab;
+  padding: 11px;
+  font-weight: bolder;
+  transition: 0.3s ease;
+  margin: 70px;
+  font-size: 20px;
+  border-radius: 10px;
+  width: 112px;
 }
-
-/* Media Queries for Responsive Design */
-@media (max-width: 768px) {
-  .exam-container {
-    flex-direction: column;
-    padding: 10px;
-    height: auto;
-  }
-  
-  .questions-container {
-    margin-right: 0;
-    margin-bottom: 20px;
-    padding: 20px;
-  }
-  
-  .flagged-questions-container {
-    width: 100%;
-  }
-  
-  .answers {
-    grid-template-columns: 1fr;
-  }
-  
-  .question-body {
-    font-size: 1.2em;
-  }
+.previous-btn {
+  color: #1679ab;
+  background-color: white;
+  border: 1px solid #1679ab;
+}
+.question__flag-btn {
+  background-color: #ffd165;
 }
 
 .timer-container {
@@ -210,7 +199,7 @@ body {
 
 .progress {
   height: 100%;
-  background-color: #76c7c0;
+  background-color: #1679ab;
   width: 100%;
   transition: width 1s linear;
 }
@@ -226,23 +215,25 @@ body {
 
 .cont {
   max-width: 600px;
+  /* text-align: center; */
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 150px auto;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+  /* box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px; */
 }
 
 .card .button-container button {
-  border-color: #ed2553;
+  border-color: #1679ab;
 }
 
 .card .button-container button span {
-  color: #ed2553;
+  color: #1679ab;
+  text-transform: lowercase;
 }
 
 .card .button-container button:hover {
-  background-color: #ed2553;
+  background-color: #1679ab;
 }
 
 .card .button-container button:hover span {
@@ -253,6 +244,30 @@ body {
   font-size: 30px;
   font-weight: bold;
   margin-top: 100px;
-  color: #ed2553;
   text-align: center;
+  font-size: xxx-large;
+  font-family: cursive;
+  color: #1679ab;
+}
+.backgroundimf {
+  position: absolute;
+  right: -2%;
+  top: 64%;
+  z-index: 1;
+}
+
+.backgroundimf {
+  position: fixed;
+  right: 0%;
+  z-index: 1;
+  width: 45%;
+  bottom: 0;
+}
+.parent {
+  position: relative; /* Creates a stacking context */
+  z-index: 99; /* Ensures this element is on top of elements with lower z-index */
+}
+
+.dsip-none {
+  /* display: none; */
 }

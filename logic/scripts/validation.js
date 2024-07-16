@@ -11,6 +11,7 @@ const loginEmail = $("#login__email");
 const loginPassword = $("#login__password");
 const loginSubmit = $("#button__login");
 
+
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const nameValidation = (htmlElement) => {

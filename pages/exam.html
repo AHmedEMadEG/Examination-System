@@ -7,6 +7,7 @@
   <title>Exam</title>
   <link rel="stylesheet" href="../design/css/test.css" />
   <link rel="stylesheet" href="../design/css/exam.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <script src="../logic/scripts/jquery-3.7.1.js"></script>
 </head>
 
@@ -14,24 +15,31 @@
   <main>
     <div class="welcome-container">
       <h1></h1>
-      <div class="card">
+      <div class="card cont">
         <div class="button-container">
-          <button id="button__start"><span>START EXAM</span></button>
+          <button id="button__start"><span class="exambtn">START EXAM</span></button>
         </div>
       </div>
     </div>
-    <div class="timer-container">
-      <div class="progress-bar">
+    <div class="parent">
+      <img class="backgroundimf" src="blob2.png">
+      <div class="timer-container">
+        <div class="progress-bar">
           <div class="progress"></div>
+        </div>
+        <div class="timer-text">5:00</div>
       </div>
-      <div class="timer-text">5:00</div>
-    </div>
-    <div class="exam-container" style="display: none">
-      <div class="questions-container">
+      <div class="exam-container" style="display: none">
+        <div class="questions-container">
+
+        </div>
+        <div class="flagged-questions-container">
+          <h3>Flagged Question</h3>
+
+        </div>
       </div>
-      <div class="flagged-questions-container">
-        <h3>Flagged Question</h3>
-      </div>
+
+
     </div>
     
     <script type="module" src="../logic/scripts/exam.js"></script>
