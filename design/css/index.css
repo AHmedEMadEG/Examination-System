@@ -1,0 +1,326 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+::selection {
+  background-color: black;
+}
+.container {
+  position: relative;
+  max-width: 460px;
+  width: 100%;
+}
+
+.container.active .card.alt {
+  top: 20px;
+  right: 0;
+  width: 100%;
+  min-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  padding: 1px 0 40px;
+  overflow: hidden;
+}
+
+.container.active .card.alt .toggle {
+  position: absolute;
+  top: 40px;
+  right: -70px;
+  box-shadow: none;
+  transform: scale(10);
+  transition: transform 0.3s ease;
+}
+
+.container.active .card.alt .toggle:before {
+  content: "";
+}
+
+.container.active .card.alt .title,
+.container.active .card.alt .input-container,
+.container.active .card.alt .button-container {
+  left: 0;
+  opacity: 1;
+  visibility: visible;
+  transition: 0.3s ease;
+}
+
+.container.active .card.alt .title {
+  transition-delay: 0.3s;
+}
+
+.container.active .card.alt .input-container {
+  transition-delay: 0.4s;
+}
+
+.container.active .card.alt .input-container:nth-child(2) {
+  transition-delay: 0.5s;
+}
+
+.container.active .card.alt .input-container:nth-child(3) {
+  transition-delay: 0.6s;
+}
+
+.container.active .card.alt .button-container {
+  transition-delay: 0.7s;
+}
+
+/* Card */
+.card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 5px;
+  padding: 60px 0 40px 0;
+  box-sizing: border-box;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: 0.3s ease;
+}
+
+.card:first-child {
+  height: 10px;
+  border-radius: 5px 5px 0 0;
+  padding: 0;
+}
+
+.card .title {
+  position: relative;
+  z-index: 1;
+  border-left: 5px solid #1679ab;
+  padding: 10px 0 10px 50px;
+  color: #1679ab;
+  font-size: 32px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.card .input-container {
+  position: relative;
+  margin: 0 60px 40px;
+}
+
+.card .input-container input {
+  outline: none;
+  z-index: 1;
+  position: relative;
+  background: none;
+  width: 100%;
+  height: 42px;
+  border: 0;
+  color: #212121;
+  font-size: 17px;
+  font-weight: 400;
+}
+
+.card .input-container input:focus ~ label {
+  color: #9d9d9d;
+  transform: translate(-12%, -50%) scale(0.75);
+}
+
+.card .input-container input:focus ~ .bar:before,
+.card .input-container input:focus ~ .bar:after {
+  width: 50%;
+}
+
+.card .input-container input:valid ~ label {
+  color: #9d9d9d;
+  transform: translate(-12%, -50%) scale(0.75);
+}
+
+.card .input-container label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #757575;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 60px;
+  transition: 0.2s ease;
+}
+
+.card .input-container .bar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: #757575;
+  width: 100%;
+  height: 1px;
+}
+
+.card .input-container .bar:before {
+  left: 50%;
+}
+
+.card .input-container .bar:after {
+  right: 50%;
+}
+
+.card .button-container {
+  margin: 0 60px;
+  text-align: center;
+}
+
+.card .button-container button {
+  border-radius: 15px;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  background: 0;
+  width: 240px;
+  border: 2px solid #1679ab;
+  padding: 20px 0;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
+  transition: all 0.5s;
+  color: #1679ab;
+}
+
+.card .button-container button:hover {
+  background-color: #1679ab;
+  color: white;
+}
+
+.card.alt {
+  position: absolute;
+  top: 40px;
+  right: -70px;
+  z-index: 10;
+  width: 140px;
+  height: 140px;
+  background: none;
+  border-radius: 100%;
+  box-shadow: none;
+  padding: 0;
+  transition: 0.3s ease;
+}
+
+.card.alt .toggle {
+  position: relative;
+  background: #1679ab;
+  width: 140px;
+  height: 140px;
+  border-radius: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  color: #ffffff;
+  font-size: 58px;
+  line-height: 140px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.card.alt .toggle:before {
+  content: "";
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translate(0, 0);
+}
+
+.card.alt .title,
+.card.alt .input-container,
+.card.alt .button-container {
+  left: 100px;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.card.alt .title {
+  position: relative;
+  border-color: white;
+  color: white;
+}
+
+.card.alt .title .close {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 60px;
+  display: inline;
+  color: white;
+  font-size: 58px;
+  font-weight: 400;
+}
+
+.card.alt .title .close:before {
+  content: "×";
+}
+
+.card.alt .input-container input {
+  color: white;
+}
+
+.card.alt .input-container input:focus ~ label {
+  color: white;
+}
+
+.card.alt .input-container input:focus ~ .bar:before,
+.card.alt .input-container input:focus ~ .bar:after {
+  background: white;
+}
+
+.card.alt .input-container input:valid ~ label {
+  color: white;
+}
+
+.card.alt .input-container label {
+  color: white;
+}
+
+.card.alt .input-container .bar {
+  background: white;
+}
+
+.card.alt .button-container button {
+  width: 100%;
+  border: 2px solid white;
+}
+
+.card.alt .button-container button span {
+  color: white;
+}
+
+.card.alt .button-container button:hover {
+  background-color: white;
+  color: #1679ab;
+}
+
+/* error handling */
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20%,
+  60% {
+    transform: translateX(-10px);
+  }
+  40%,
+  80% {
+    transform: translateX(10px);
+  }
+}
+
+.input-container.error input {
+  color: red !important;
+  animation: shake 0.5s;
+}
+
+.error-msg {
+  display: none; /* Initially hidden */
+  color: red;
+  font-size: 14px;
+  padding: 10px;
+  background-color: antiquewhite;
+}
