@@ -5,6 +5,8 @@ const examContainer = $('.exam-container');
 const questionsContainer = $('.questions-container');
 const flaggedContainer = $('.flagged-questions-container');
 
+$('h1').addClass('animate__animated animate__zoomInUp');
+
 let nextBtn = null;
 let flagBtn = null;
 let prevBtn = null;
@@ -122,7 +124,17 @@ const createDomQuestion = (question, index) => {
     questionsContainer.append(questionContainer);
 };
 
+// Fisher-Yates shuffle algorithm from chatGPT
+const shuffleArray = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  };
+
 const initializeQuestions = (questions) => {
+    questions = shuffleArray(questions);
     questions.forEach((question, index) => {
         createDomQuestion(question, index);
     });
@@ -148,6 +160,7 @@ const initializeQuestions = (questions) => {
     questionContainer[0].style.display = "block";
     nextBtn.css("display", "inline");
     flagBtn.css("display", "inline");
+    showAndHideBtns();
 };
 
 
@@ -199,13 +212,13 @@ $("#button__start").on("click", startExam);
 const showAndHideBtns = () => {
     currentQuestion ? prevBtn.css("display", "inline") : prevBtn.css("display", "none"); // if currentQuestion not 0 show else hide
     (currentQuestion === 9) ? nextBtn.css("display", "none") : nextBtn.css("display", "inline"); // if currentQuestion 9 hide else show
+    questionsArray[currentQuestion].flagged ? flagBtn.text("Unflag") : flagBtn.text("Flag");
 };
 
 const showNextQuestion = () => {
     questionContainer[currentQuestion].style.display = "none";
     currentQuestion = (currentQuestion + 1) % questionContainer.length; // 0 - length of questions
     questionContainer[currentQuestion].style.display = "block";
-    questionsArray[currentQuestion].flagged ? flagBtn.text("Unflag") : flagBtn.text("Flag");
 
     showAndHideBtns();
 };
@@ -214,8 +227,6 @@ const showNextQuestion = () => {
 const showPreviousQuestion = () => {
     questionContainer[currentQuestion].style.display = "none";
     currentQuestion = (currentQuestion - 1 + questionContainer.length) % questionContainer.length; // length of questions - 0
-    questionsArray[currentQuestion].flagged ? flagBtn.text("Unflag") : flagBtn.text("Flag");
-
     questionContainer[currentQuestion].style.display = "block";
 
     showAndHideBtns();
@@ -246,6 +257,5 @@ const flagQuestion = () => {
         });
         !(flaggedContainer.children().length) && flaggedContainer.css("display", "none");
     }
-
-    questionsArray[currentQuestion].flagged ? flagBtn.text("UNFLAG") : flagBtn.text("FLAG");
+    showAndHideBtns();
 };

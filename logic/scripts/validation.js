@@ -89,6 +89,7 @@ signupSubmit.on("click", (e) => {
 
   rePasswordError && console.log(rePassword.val());
   duplicatedEmailError && console.log("this email already exists!");
+  duplicatedEmailError && showError($(signupEmail[0]), "this email already exists!");
 
   rePasswordError && showError(rePassword, "Passwords don't match!");
   !rePasswordError && rePassword.closest(".input-container").find(".error-msg").hide();

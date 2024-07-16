@@ -1,7 +1,7 @@
-let loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+// let loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
 
-!loggedInUser && location.replace("../../pages/index.html");
+// !loggedInUser && location.replace("../../pages/index.html");
 
-$(".score").text(loggedInUser.lastScore);
+// $(".score").text(loggedInUser.lastScore);
 
-localStorage.removeItem('loggedInUser');
+// localStorage.removeItem('loggedInUser');

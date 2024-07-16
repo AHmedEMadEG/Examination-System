@@ -518,7 +518,7 @@ body {
 }
 
 .input-container.error input {
-  color: red;
+  color: red !important;
   animation: shake 0.5s;
 }
 
