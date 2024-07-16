@@ -1,0 +1,36 @@
+.results-container{
+    padding: 20px;
+    margin: 0 150px;
+    max-width: 50%;
+}
+
+.backgroundimg {
+    position: fixed;
+    right: 0%;
+    z-index: 1;
+    width: 45%;
+    bottom: 0;
+  }
+
+.message{
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.score{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.score > div {
+    border: 2px solid #1679ab;
+    width: 275px;
+    height: 175px;
+    margin-bottom: 50px;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

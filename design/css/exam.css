@@ -249,20 +249,15 @@ li > label {
   font-family: cursive;
   color: #1679ab;
 }
-.backgroundimf {
-  position: absolute;
-  right: -2%;
-  top: 64%;
-  z-index: 1;
-}
 
-.backgroundimf {
+.backgroundimg {
   position: fixed;
   right: 0%;
-  z-index: 1;
+  z-index: -1;
   width: 45%;
   bottom: 0;
 }
+
 .parent {
   position: relative; /* Creates a stacking context */
   z-index: 99; /* Ensures this element is on top of elements with lower z-index */
