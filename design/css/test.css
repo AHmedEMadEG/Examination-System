@@ -442,6 +442,9 @@ body {
   }
 }
 
+/**********************************/
+/* to be revised */
+
 .mama {
   display: flex;
   justify-content: space-between;
@@ -455,4 +458,40 @@ body {
 .mama img {
   width: 489px;
   height: 570px;
+}
+
+.animate__animated .animate__backInUp {
+  text-align: center;
+  font-size: xxx-large;
+  font-family: cursive;
+}
+
+.animate__animated{
+  text-align: center;
+  font-size: xxx-large;
+  font-family: cursive;
+  color:#ffc146;
+}
+
+
+/**********************************/
+/* error handling */
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-10px); }
+  40%, 80% { transform: translateX(10px); }
+}
+
+.input-container.error input {
+  color: red;
+  animation: shake 0.5s;
+}
+
+.error-msg {
+  display: none; /* Initially hidden */
+  color: red;
+  font-size: 14px;
+  padding: 10px;
+  background-color: antiquewhite;
 }

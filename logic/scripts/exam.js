@@ -70,17 +70,40 @@ const timedOut = () => {
     location.replace("../../pages/result.html");
 };
 
+// const createDomQuestion = (question, index) => {
+//     const questionObj = new Question(question)
+//     const questionContainer = $('<div class="question-container"></div>');
+//     const body = $(`<h3 class='question-body'>${index + 1}. ${question.question_body}</h3>`);
+//     questionContainer.append(body);
+//     const ul = $(`<ul class='answers'></ul>`);
+//     question.answers.forEach((answer, index) => {
+//         const li = $(`<li><input type="radio" id="${index}_${answer}" 
+//         name="${question.id}" value="${answer}"><label for="${index}_${answer}">${answer}</label></li>`);
+//         li.on("change", (e) => {
+//             questionObj.selectedAnswer = e.target.value; 
+//         });
+//         ul.append(li);
+//     });
+//     questionsArray.push(questionObj);
+//     questionContainer.append(ul);
+//     questionsContainer.append(questionContainer);
+// };
+
+
 const createDomQuestion = (question, index) => {
-    const questionObj = new Question(question)
+    const questionObj = new Question(question);
     const questionContainer = $('<div class="question-container"></div>');
     const body = $(`<h3 class='question-body'>${index + 1}. ${question.question_body}</h3>`);
     questionContainer.append(body);
     const ul = $(`<ul class='answers'></ul>`);
-    question.answers.forEach((answer, index) => {
-        const li = $(`<li><input type="radio" id="${index}_${answer}" 
-        name="${question.id}" value="${answer}"><label for="${index}_${answer}">${answer}</label></li>`);
-        li.on("change", (e) => {
-            questionObj.selectedAnswer = e.target.value; 
+    question.answers.forEach((answer, i) => {
+        const li = $(`<li><input type="radio" id="${index}_${i}" name="${question.id}" value="${answer}"> <label for="${index}_${i}">${answer}</label></li>`);
+        li.on("click", () => {
+            $(`input[name="${question.id}"]`).prop("checked", false);
+            li.find('input').prop("checked", true);
+            questionObj.selectedAnswer = answer;
+            ul.find('li').removeClass('selected');
+            li.addClass('selected');
         });
         ul.append(li);
     });

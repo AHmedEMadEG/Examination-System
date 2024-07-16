@@ -19,8 +19,8 @@ const nameValidation = (htmlElement) => {
     !$input.val() ||$input.val().split("").some((char) => !isNaN(char) && char !== " ") ||$input.val().length < 4 
     ||$input.val().length > 15;
 
-  errorCondition && console.log($input.val());
-
+  errorCondition && showError($input, "Name not valid!");
+  !errorCondition && $input.closest(".input-container").find(".error-msg").hide();
   return errorCondition;
 };
 
@@ -32,11 +32,25 @@ lName.on("change", (e) => {
   nameValidation(e.target);
 });
 
+const showError = ($input, msg) => {
+  if($input.hasClass("error-msg")){
+    $input.text(msg).show();
+  }else{
+    const inputContainer = $input.closest(".input-container");
+    $input.on("focus", () => inputContainer.removeClass("error"));
+    console.log(msg);
+    inputContainer.find(".error-msg").text(msg).show();
+    $input.closest(".input-container").addClass("error");
+  }
+};
+
 const emailValidation = (htmlElement) => {
   const $input = $(htmlElement);
+  
   const errorCondition = !$input.val() || !emailRegex.test($input.val());
 
-  errorCondition && console.log($input.val());
+  errorCondition && showError($input, "Email not valid!");
+  !errorCondition && $input.closest(".input-container").find(".error-msg").hide();
 
   return errorCondition;
 };
@@ -50,7 +64,8 @@ const passwordValidation = (htmlElement) => {
   const errorCondition =
     !$input.val() || $input.val().length < 8 || $input.val().length > 15;
 
-  errorCondition && console.log($input.val());
+    errorCondition && showError($input, "Password not valid!");
+    !errorCondition && $input.closest(".input-container").find(".error-msg").hide();
 
   return errorCondition;
 };
@@ -72,7 +87,12 @@ signupSubmit.on("click", (e) => {
   const duplicatedEmailError = _users.some(user => user.email === signupEmail[0].value);
 
   rePasswordError && console.log(rePassword.val());
-  duplicatedEmailError && console.log("email exists!");
+  duplicatedEmailError && console.log("this email already exists!");
+
+  rePasswordError && showError(rePassword, "Passwords don't match!");
+  !rePasswordError && rePassword.closest(".input-container").find(".error-msg").hide();
+
+  duplicatedEmailError && showError($(".signup-error-msg"), "this email already exists!");
 
   if (!fNameError && !lNameError && !emailError && !passwordError && !rePasswordError && !duplicatedEmailError) {
     const fn = fName.val();
@@ -111,6 +131,6 @@ loginSubmit.on("click", (e) => {
         validationError = false;
       }
     });
-    validationError && console.log("wrong email or password");
+    validationError && showError($(".login-error-msg"), "wrong Email or Password!");
   }
 });
