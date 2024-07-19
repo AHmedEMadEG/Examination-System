@@ -17,8 +17,8 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const nameValidation = (htmlElement) => {
   const $input = $(htmlElement);
   const errorCondition =
-    !$input.val() ||$input.val().split("").some((char) => !isNaN(char) && char !== " ") ||$input.val().length < 4 
-    ||$input.val().length > 15;
+    !$input.val() || $input.val().split("").some((char) => !isNaN(char) && char !== " ") || $input.val().length < 4
+    || $input.val().length > 15;
 
   errorCondition && showError($input, "Name not valid!");
   !errorCondition && $input.closest(".input-container").find(".error-msg").hide();
@@ -34,9 +34,9 @@ lName.on("change", (e) => {
 });
 
 const showError = ($input, msg) => {
-  if($input.hasClass("error-msg")){
+  if ($input.hasClass("error-msg")) {
     $input.text(msg).show();
-  }else{
+  } else {
     const inputContainer = $input.closest(".input-container");
     $input.on("focus", () => inputContainer.removeClass("error"));
     console.log(msg);
@@ -47,7 +47,7 @@ const showError = ($input, msg) => {
 
 const emailValidation = (htmlElement) => {
   const $input = $(htmlElement);
-  
+
   const errorCondition = !$input.val() || !emailRegex.test($input.val());
 
   errorCondition && showError($input, "Email not valid!");
@@ -65,8 +65,8 @@ const passwordValidation = (htmlElement) => {
   const errorCondition =
     !$input.val() || $input.val().length < 8 || $input.val().length > 15;
 
-    errorCondition && showError($input, "Password not valid!");
-    !errorCondition && $input.closest(".input-container").find(".error-msg").hide();
+  errorCondition && showError($input, "Password not valid!");
+  !errorCondition && $input.closest(".input-container").find(".error-msg").hide();
 
   return errorCondition;
 };
@@ -135,4 +135,9 @@ loginSubmit.on("click", (e) => {
     });
     validationError && showError($(".login-error-msg"), "wrong Email or Password!");
   }
+});
+
+document.getElementById("reg").addEventListener("click", () => {
+  const overlay = document.querySelector('.container');
+  overlay.classList.toggle('active');
 });
