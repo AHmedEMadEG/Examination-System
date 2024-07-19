@@ -1,6 +1,6 @@
 import { Question } from "../../modules/Question.js";
 import { showAndHideBtns, showNextQuestion, showPreviousQuestion, flagQuestion } from "./ControlButtons.js";
-import { calculateUnansweredQuestions } from "./ExamSubmission.js";
+import { calculateUnansweredQuestions, timedOut } from "./ExamSubmission.js";
 
 
 export let questionContainer = null;
@@ -42,8 +42,8 @@ const createDomQuestion = (question, index) => {
 // Fisher-Yates shuffle algorithm from chatGPT
 const shuffleArray = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
     }
     return array;
 };
@@ -70,7 +70,7 @@ const initializeQuestions = (questions) => {
 
     questionsContainer.append(btnsContainer);
     questionsContainer.append(submitBtnContainer);
-    
+
     flagBtn.on("click", flagQuestion);
     nextBtn.on("click", showNextQuestion);
     prevBtn.on("click", showPreviousQuestion);
@@ -93,7 +93,7 @@ export const startExam = async () => {
 
 const startTimer = () => {
     $(".timer-container").css("display", "flex");
-    const examDuration = 10 * 60;
+    const examDuration = 1 * 60;
     let remainingTime = examDuration;
 
     const progressBar = $('.progress');
